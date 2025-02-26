@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Crossclimb</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        text-align: center;
+      }
+      .puzzle-container {
+        width: 300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .puzzle-row {
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+        cursor: move;
+      }
+      .buttons-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      button {
+        margin: 0 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      .drag-over {
+        outline: 2px dashed #666;
+      }
+      .selected {
+        background-color: #d0eaff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Crossclimb Puzzle</h1>
+
+    <button id="generate-button">New Puzzle</button>
+
+    <div class="puzzle-container">
+      <!-- Top row (locked until middle is correct) -->
+      <div class="puzzle-row" id="top-row" data-locked="true">
+        TOP ROW (locked)
+      </div>
+
+      <!-- Middle 5 rows (draggable) with empty data-solution and data-clue -->
+      <div class="puzzle-row" id="row-1" draggable="true" data-index="1" data-solution="" data-clue="">
+        Row 1 (middle)
+      </div>
+      <div class="puzzle-row" id="row-2" draggable="true" data-index="2" data-solution="" data-clue="">
+        Row 2 (middle)
+      </div>
+      <div class="puzzle-row" id="row-3" draggable="true" data-index="3" data-solution="" data-clue="">
+        Row 3 (middle)
+      </div>
+      <div class="puzzle-row" id="row-4" draggable="true" data-index="4" data-solution="" data-clue="">
+        Row 4 (middle)
+      </div>
+      <div class="puzzle-row" id="row-5" draggable="true" data-index="5" data-solution="" data-clue="">
+        Row 5 (middle)
+      </div>
+
+      <!-- Bottom row (locked until middle is correct) -->
+      <div class="puzzle-row" id="bottom-row" data-locked="true">
+        BOTTOM ROW (locked)
+      </div>
+    </div>
+
+    <!-- Buttons for Hint and Reveal -->
+    <div class="buttons-container">
+      <button id="hint-button">Hint</button>
+      <button id="reveal-button">Reveal</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
